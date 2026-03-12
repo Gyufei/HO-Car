@@ -129,4 +129,10 @@ pnpm dev
   - 在 Auth.js 的 Credentials Provider 中从数据库查找用户并校验密码。
 - 图表与统计：
   - 可以新增 `/api/stats` 路由，对 `bills` 做分组聚合，为前端图表提供数据。
+  
+
+  prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19xUXp1ak1sWmJONlpQUVUtUXpJcDYiLCJhcGlfa2V5IjoiMDFLS0gxUFZKMUdTRzhFQkM5SFhRRjJNVlIiLCJ0ZW5hbnRfaWQiOiI3YWE0NGVjOTVlMGY4NTY0YTJhY2I1ZmM3MjcxYmQ2NzE4YzZjMjY3OGUzYzc5YTI4MDQ4ODJkY2FkZTQxOTcxIiwiaW50ZXJuYWxfc2VjcmV0IjoiMWM3NTZlNDQtMjMxYy00OWZhLThkMzgtZmU1MzRjZGY0MTMwIn0.B9UwJV9OAb0iWXAIK7xntGIteF_gZU4yIOhOTTJDaUc
+
+
+  postgres://7aa44ec95e0f8564a2acb5fc7271bd6718c6c2678e3c79a2804882dcade41971:sk_qQzujMlZbN6ZPQU-QzIp6@db.prisma.io:5432/postgres?sslmode=require
 
