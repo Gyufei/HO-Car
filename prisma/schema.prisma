@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Bill {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  type       BillType
+  year       Int
+  month      Int
+  amount     Decimal  @db.Decimal(10, 2)
+  usage      Decimal  @db.Decimal(10, 2)
+  unitPrice  Decimal? @db.Decimal(10, 4) @map("unit_price")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("bills")
+  @@index([userId, year, month, type], name: "idx_bills_user_year_month_type")
+}
+
+enum BillType {
+  ELE
+  WATER
+}
+

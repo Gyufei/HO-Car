@@ -20,6 +20,44 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Backend & Auth
+
+- Backend APIs are implemented using Next.js Route Handlers under `app/api`.
+- Database uses Postgres via Prisma (`prisma/schema.prisma`).
+- Authentication is handled by Auth.js / NextAuth with a single admin account and Credentials Provider.
+- Protected routes:
+  - `/ele`, `/water`
+  - `/api/bills`
+
+For more details, see `docs/backend-and-deploy.md`.
+
+### Local setup (backend)
+
+1. Create a `.env` file with at least:
+
+   ```bash
+   DATABASE_URL="postgresql://user:password@host:5432/home_calc"
+   AUTH_SECRET="your-random-secret"
+   ADMIN_USERNAME="your-admin"
+   ADMIN_PASSWORD_HASH="bcrypt-hash-of-password"
+   SINGLE_USER_ID="home-calc-single-user"
+   ```
+
+2. Run Prisma:
+
+   ```bash
+   pnpm prisma:generate
+   pnpm prisma:migrate
+   ```
+
+3. Start dev server:
+
+   ```bash
+   pnpm dev
+   ```
+
+Then open `/login` to sign in before accessing `/ele` or `/water`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
