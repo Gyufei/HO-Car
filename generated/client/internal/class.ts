@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.4.2",
   "engineVersion": "94a226be1cf2967af2541cca5529f0f7ba866919",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Bill {\n  id        String   @id @default(cuid())\n  userId    String   @map(\"user_id\")\n  type      BillType\n  year      Int\n  month     Int\n  amount    Decimal  @db.Decimal(10, 2)\n  usage     Decimal  @db.Decimal(10, 2)\n  unitPrice Decimal? @map(\"unit_price\") @db.Decimal(10, 4)\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n\n  @@index([userId, year, month, type], name: \"idx_bills_user_year_month_type\")\n  @@map(\"bills\")\n}\n\nenum BillType {\n  ELE\n  WATER\n}\n",
+  "inlineSchema": "generator client {\n  provider     = \"prisma-client\"\n  output       = \"../generated/client\"\n  relationMode = \"prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Bill {\n  id        String   @id @default(cuid())\n  userId    String   @map(\"user_id\")\n  type      BillType\n  year      Int\n  month     Int\n  amount    Decimal  @db.Decimal(10, 2)\n  usage     Decimal  @db.Decimal(10, 2)\n  unitPrice Decimal? @map(\"unit_price\") @db.Decimal(10, 4)\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n\n  @@index([userId, year, month, type], name: \"idx_bills_user_year_month_type\")\n  @@map(\"bills\")\n}\n\nenum BillType {\n  ELE\n  WATER\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},

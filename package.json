@@ -14,6 +14,7 @@
   "dependencies": {
     "@prisma/client": "latest",
     "@prisma/extension-accelerate": "latest",
+    "@prisma/adapter-pg": "latest",
     "bcryptjs": "^2.4.3",
     "next": "latest",
     "next-auth": "5.0.0-beta.30",
