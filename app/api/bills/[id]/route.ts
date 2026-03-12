@@ -22,9 +22,9 @@ function getUserIdFromEnv(): string {
 
 export async function PATCH(
   req: NextRequest,
-  context: { params: { id: string } },
+  context: { params: Promise<{ id: string }> },
 ) {
-  const id = context.params.id;
+  const { id } = await context.params;
   const parsedId = idSchema.safeParse(id);
   if (!parsedId.success) {
     return NextResponse.json(
@@ -73,9 +73,9 @@ export async function PATCH(
 
 export async function DELETE(
   _req: NextRequest,
-  context: { params: { id: string } },
+  context: { params: Promise<{ id: string }> },
 ) {
-  const id = context.params.id;
+  const { id } = await context.params;
   const parsedId = idSchema.safeParse(id);
   if (!parsedId.success) {
     return NextResponse.json(
