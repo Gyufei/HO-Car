@@ -9,6 +9,11 @@ export const authConfig: NextAuthConfig = {
   session: {
     strategy: "jwt",
   },
+  callbacks: {
+    authorized({ auth }) {
+      return Boolean(auth?.user);
+    },
+  },
   providers: [
     Credentials({
       name: "Credentials",
